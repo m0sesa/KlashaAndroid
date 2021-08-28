@@ -1,8 +1,8 @@
 package com.klasha.android.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.SpannableStringBuilder
+import androidx.appcompat.app.AppCompatActivity
 import com.klasha.android.databinding.ActivityOtpBinding
 
 internal class OtpActivity : AppCompatActivity() {

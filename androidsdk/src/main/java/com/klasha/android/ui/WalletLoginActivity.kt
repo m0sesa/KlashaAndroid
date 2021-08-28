@@ -1,8 +1,7 @@
 package com.klasha.android.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.klasha.android.R
+import androidx.appcompat.app.AppCompatActivity
 import com.klasha.android.databinding.ActivityWalletLoginBinding
 
 class WalletLoginActivity : AppCompatActivity() {

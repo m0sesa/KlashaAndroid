@@ -2,9 +2,7 @@ package com.klasha.android.ui
 
 import android.os.Bundle
 import android.text.SpannableStringBuilder
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import com.klasha.android.databinding.ActivityPinBinding
 
 internal class PinActivity : AppCompatActivity() {

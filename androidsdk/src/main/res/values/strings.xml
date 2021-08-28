@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">AndroidSdk</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="otp">OTP</string>
+    <string name="log_in">Log in</string>
+    <string name="logo">Logo</string>
+    <string name="number_9">9</string>
+    <string name="number_0">0</string>
+    <string name="number_7">7</string>
+    <string name="number_8">8</string>
+    <string name="number_6">6</string>
+    <string name="number_4">4</string>
+    <string name="number_5">5</string>
+    <string name="number_1">1</string>
+    <string name="number_2">2</string>
+    <string name="number_3">3</string>
+    <string name="delete">Delete</string>
+    <string name="pin_prompt">Please enter your pin</string>
 </resources>
