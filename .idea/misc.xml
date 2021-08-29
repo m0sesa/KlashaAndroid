@@ -8,6 +8,8 @@
         <entry key="androidsdk/src/main/res/layout/activity_otp.xml" value="0.21979166666666666" />
         <entry key="androidsdk/src/main/res/layout/activity_pin.xml" value="0.21979166666666666" />
         <entry key="androidsdk/src/main/res/layout/activity_wallet_login.xml" value="0.21979166666666666" />
+        <entry key="androidsdk/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2359375" />
+        <entry key="androidsdk/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2359375" />
       </map>
     </option>
   </component>
