@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="androidsdk/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.2359375" />
         <entry key="androidsdk/src/main/res/drawable/edit_text_input.xml" value="0.2359375" />
         <entry key="androidsdk/src/main/res/drawable/ic_icon_app_itunes.xml" value="0.2359375" />
         <entry key="androidsdk/src/main/res/layout/activity_otp.xml" value="0.21979166666666666" />
