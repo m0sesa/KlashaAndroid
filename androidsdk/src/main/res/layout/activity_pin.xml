@@ -155,7 +155,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/grey"
+            android:background="@color/card_background"
             android:padding="12dp">
 
             <com.google.android.material.button.MaterialButton

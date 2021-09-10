@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.KlashaAndroid" parent="Theme.MaterialComponents.Light">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/secondary_700</item>
-        <item name="colorPrimaryVariant">#423B3B</item>
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryVariant">@android:color/white</item>
         <item name="colorOnPrimary">@android:color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondary_200</item>
@@ -23,4 +23,6 @@
     <style name="Theme.KlashaAndroid.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.KlashaAndroid.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <color name="card_background">@color/grey</color>
 </resources>
