@@ -314,7 +314,7 @@ internal class Klasha(
     }
 
     interface WalletLoginCallback: SDKCallback {
-        fun success(walletLoginResponse: Response<WalletLoginResponse>)
+        fun success(response: Response<WalletLoginResponse>)
     }
 
     interface WalletPaymentCallback: SDKCallback {
