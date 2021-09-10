@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@android:color/white</item>
         <item name="colorPrimaryVariant">@android:color/white</item>
-        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorOnPrimary">@android:color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondary_200</item>
         <item name="colorSecondaryVariant">@color/secondary_700</item>
@@ -22,5 +22,7 @@
     <style name="Theme.KlashaAndroid.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.KlashaAndroid.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <color name="text_color">@android:color/black</color>
 
 </resources>

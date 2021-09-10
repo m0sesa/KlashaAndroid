@@ -351,7 +351,7 @@
         android:layout_marginTop="40dp"
         android:text="@string/pin_prompt"
         android:textSize="24sp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/text_color"
         app:layout_constraintEnd_toEndOf="@+id/tilPinChar3"
         app:layout_constraintStart_toStartOf="@+id/tilPinChar0"
         app:layout_constraintTop_toTopOf="parent" />
