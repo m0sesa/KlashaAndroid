@@ -5,16 +5,16 @@
     <string name="otp">OTP</string>
     <string name="log_in">Log in</string>
     <string name="logo">Logo</string>
-    <string name="number_9">9</string>
-    <string name="number_0">0</string>
-    <string name="number_7">7</string>
-    <string name="number_8">8</string>
-    <string name="number_6">6</string>
-    <string name="number_4">4</string>
-    <string name="number_5">5</string>
-    <string name="number_1">1</string>
-    <string name="number_2">2</string>
-    <string name="number_3">3</string>
+    <string name="number_9"><b>9</b></string>
+    <string name="number_0"><b>0</b></string>
+    <string name="number_7"><b>7</b></string>
+    <string name="number_8"><b>8</b></string>
+    <string name="number_6"><b>6</b></string>
+    <string name="number_4"><b>4</b></string>
+    <string name="number_5"><b>5</b></string>
+    <string name="number_1"><b>1</b></string>
+    <string name="number_2"><b>2</b></string>
+    <string name="number_3"><b>3</b></string>
     <string name="delete">Delete</string>
-    <string name="pin_prompt">Please enter your pin</string>
+    <string name="pin_prompt"><b>Enter your pin</b></string>
 </resources>

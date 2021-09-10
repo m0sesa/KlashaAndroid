@@ -25,15 +25,18 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/pinChar0"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:ems="2"
             android:enabled="false"
             android:focusable="false"
             android:gravity="center"
             android:importantForAutofill="no"
+            android:includeFontPadding="false"
             android:inputType="textPassword"
-            android:textSize="20sp"
+            android:padding="0dp"
+            android:textColor="@android:color/black"
+            android:textSize="48sp"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,8 +66,11 @@
             android:focusable="false"
             android:gravity="center"
             android:importantForAutofill="no"
+            android:includeFontPadding="false"
             android:inputType="textPassword"
-            android:textSize="20sp"
+            android:padding="0dp"
+            android:textColor="@android:color/black"
+            android:textSize="48sp"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -94,8 +100,11 @@
             android:focusable="false"
             android:gravity="center"
             android:importantForAutofill="no"
+            android:includeFontPadding="false"
             android:inputType="textPassword"
-            android:textSize="20sp"
+            android:padding="0dp"
+            android:textColor="@android:color/black"
+            android:textSize="48sp"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -125,8 +134,11 @@
             android:focusable="false"
             android:gravity="center"
             android:importantForAutofill="no"
+            android:includeFontPadding="false"
             android:inputType="textPassword"
-            android:textSize="20sp"
+            android:padding="0dp"
+            android:textColor="@android:color/black"
+            android:textSize="48sp"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,8 +146,8 @@
         android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        app:cardCornerRadius="8dp"
+        android:layout_marginTop="52dp"
+        app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="@+id/tilPinChar3"
         app:layout_constraintStart_toStartOf="@+id/tilPinChar0"
         app:layout_constraintTop_toBottomOf="@+id/tilPinChar0">
@@ -143,7 +155,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/primary_200"
+            android:background="@color/grey"
             android:padding="12dp">
 
             <com.google.android.material.button.MaterialButton
@@ -153,6 +165,7 @@
                 android:layout_height="72dp"
                 android:text="@string/number_9"
                 android:textColor="@android:color/black"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="@+id/button7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -182,6 +195,7 @@
                 android:layout_height="72dp"
                 android:text="@string/number_0"
                 android:textColor="@android:color/black"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="@+id/buttonOk"
                 app:layout_constraintEnd_toStartOf="@+id/buttonBack"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -196,6 +210,7 @@
                 android:layout_height="72dp"
                 android:text="@string/number_7"
                 android:textColor="@android:color/black"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toTopOf="@+id/buttonOk"
                 app:layout_constraintEnd_toStartOf="@+id/button8"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -211,6 +226,7 @@
                 android:layout_height="72dp"
                 android:text="@string/number_8"
                 android:textColor="@android:color/black"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="@+id/button7"
                 app:layout_constraintEnd_toStartOf="@+id/button9"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -225,6 +241,7 @@
                 android:layout_height="72dp"
                 android:text="@string/number_6"
                 android:textColor="@android:color/black"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="@+id/button4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -239,6 +256,7 @@
                 android:layout_height="72dp"
                 android:text="@string/number_4"
                 android:textColor="@android:color/black"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toTopOf="@+id/button7"
                 app:layout_constraintEnd_toStartOf="@+id/button5"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -254,6 +272,7 @@
                 android:layout_height="72dp"
                 android:text="@string/number_5"
                 android:textColor="@android:color/black"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="@+id/button4"
                 app:layout_constraintEnd_toStartOf="@+id/button6"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -268,6 +287,7 @@
                 android:layout_height="72dp"
                 android:text="@string/number_1"
                 android:textColor="@android:color/black"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toTopOf="@+id/button4"
                 app:layout_constraintEnd_toStartOf="@+id/button2"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -284,6 +304,7 @@
                 android:layout_height="72dp"
                 android:text="@string/number_2"
                 android:textColor="@android:color/black"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="@+id/button1"
                 app:layout_constraintEnd_toStartOf="@+id/button3"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -298,6 +319,7 @@
                 android:layout_height="72dp"
                 android:text="@string/number_3"
                 android:textColor="@android:color/black"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="@+id/button1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -326,8 +348,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
         android:text="@string/pin_prompt"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="@+id/tilPinChar3"
         app:layout_constraintStart_toStartOf="@+id/tilPinChar0"
         app:layout_constraintTop_toTopOf="parent" />

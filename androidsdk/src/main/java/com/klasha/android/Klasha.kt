@@ -2,6 +2,7 @@ package com.klasha.android
 
 import android.app.Activity
 import com.klasha.android.model.Currency
+import com.klasha.android.model.Error
 import com.klasha.android.model.request.*
 import com.klasha.android.model.response.*
 import com.klasha.android.service.ApiFactory
@@ -28,7 +29,11 @@ internal class Klasha(
                     call: Call<ExchangeResponse>,
                     response: Response<ExchangeResponse>
                 ) {
-                    exchangeCallBack.success(response)
+                    if (response.isSuccessful && response.body() != null){
+                        exchangeCallBack.success(response)
+                    }else{
+                        exchangeCallBack.error(Error.BAD_EXCHANGE_REQUEST.name)
+                    }
                 }
 
                 override fun onFailure(call: Call<ExchangeResponse>, t: Throwable) {
@@ -50,7 +55,11 @@ internal class Klasha(
                     call: Call<ValidatePaymentResponse>,
                     response: Response<ValidatePaymentResponse>
                 ) {
-                    validatePaymentCallback.success(response)
+                    if (response.isSuccessful) {
+                        validatePaymentCallback.success(response)
+                    }else{
+                        validatePaymentCallback.error(Error.BAD_REQUEST.name)
+                    }
                 }
 
                 override fun onFailure(call: Call<ValidatePaymentResponse>, t: Throwable) {
@@ -73,7 +82,11 @@ internal class Klasha(
                     call: Call<SendCardPaymentResponse>,
                     response: Response<SendCardPaymentResponse>
                 ) {
-                    sendCardPaymentCallback.success(response)
+                    if (response.isSuccessful) {
+                        sendCardPaymentCallback.success(response)
+                    }else{
+                        sendCardPaymentCallback.error(Error.BAD_REQUEST.name)
+                    }
                 }
 
                 override fun onFailure(call: Call<SendCardPaymentResponse>, t: Throwable) {
@@ -96,7 +109,11 @@ internal class Klasha(
                     call: Call<ChargeCardResponse>,
                     response: Response<ChargeCardResponse>
                 ) {
-                    chargeCardCallback.success(response)
+                    if (response.isSuccessful){
+                        chargeCardCallback.success(response)
+                    }else{
+                        chargeCardCallback.error(Error.BAD_REQUEST.name)
+                    }
                 }
 
                 override fun onFailure(call: Call<ChargeCardResponse>, t: Throwable) {
@@ -118,7 +135,11 @@ internal class Klasha(
                     call: Call<BankTransferResponse>,
                     response: Response<BankTransferResponse>
                 ) {
-                    bankTransferCallback.success(response)
+                    if (response.isSuccessful){
+                        bankTransferCallback.success(response)
+                    }else{
+                        bankTransferCallback.error(Error.BAD_REQUEST.name)
+                    }
                 }
 
                 override fun onFailure(call: Call<BankTransferResponse>, t: Throwable) {
@@ -141,14 +162,17 @@ internal class Klasha(
                     call: Call<MobileMoneyResponse>,
                     response: Response<MobileMoneyResponse>
                 ) {
-                    mobileMoneyCallback.success(response)
+                    if (response.isSuccessful){
+                        mobileMoneyCallback.success(response)
+                    }else{
+                        mobileMoneyCallback.error(Error.BAD_REQUEST.name)
+                    }
                 }
 
                 override fun onFailure(call: Call<MobileMoneyResponse>, t: Throwable) {
                     val message = parseError(t)
                     mobileMoneyCallback.error(message)
                 }
-
             })
     }
 
@@ -164,7 +188,11 @@ internal class Klasha(
                     call: Call<MPESAResponse>,
                     response: Response<MPESAResponse>
                 ) {
-                    mpesaCallback.success(response)
+                    if (response.isSuccessful){
+                        mpesaCallback.success(response)
+                    }else{
+                        mpesaCallback.error(Error.BAD_REQUEST.name)
+                    }
                 }
 
                 override fun onFailure(call: Call<MPESAResponse>, t: Throwable) {
@@ -186,7 +214,11 @@ internal class Klasha(
                     call: Call<WalletLoginResponse>,
                     response: Response<WalletLoginResponse>
                 ) {
-                    walletLoginCallback.success(response)
+                    if (response.isSuccessful){
+                        walletLoginCallback.success(response)
+                    }else{
+                        walletLoginCallback.error(Error.BAD_REQUEST.name)
+                    }
                 }
 
                 override fun onFailure(call: Call<WalletLoginResponse>, t: Throwable) {
@@ -208,7 +240,11 @@ internal class Klasha(
                     call: Call<MakeWalletPaymentResponse>,
                     response: Response<MakeWalletPaymentResponse>
                 ) {
-                    walletPaymentCallback.success(response)
+                    if (response.isSuccessful){
+                        walletPaymentCallback.success(response)
+                    }else{
+                        walletPaymentCallback.error(Error.BAD_REQUEST.name)
+                    }
                 }
 
                 override fun onFailure(call: Call<MakeWalletPaymentResponse>, t: Throwable) {
@@ -223,21 +259,21 @@ internal class Klasha(
         return when (t) {
             is HttpException -> {
                 when (t.code()) {
-                    HttpsURLConnection.HTTP_UNAUTHORIZED -> "Unauthorised User"
-                    HttpsURLConnection.HTTP_FORBIDDEN -> "Forbidden"
-                    HttpsURLConnection.HTTP_INTERNAL_ERROR -> "Internal server error"
-                    HttpsURLConnection.HTTP_BAD_REQUEST -> "Bad Request"
+                    HttpsURLConnection.HTTP_UNAUTHORIZED -> Error.UNAUTHORISED.name
+                    HttpsURLConnection.HTTP_FORBIDDEN -> Error.UNAUTHORISED.name
+                    HttpsURLConnection.HTTP_INTERNAL_ERROR -> Error.SERVER_ERROR.name
+                    HttpsURLConnection.HTTP_BAD_REQUEST -> Error.BAD_REQUEST.name
                     else -> t.localizedMessage
                 }
             }
             is UnknownHostException -> {
-                "Limited Connectivity, Please Check internet"
+                Error.LIMITED_CONNECTIVITY.name
             }
             is SSLHandshakeException -> {
-                "Limited Connectivity, Please Check internet"
+                Error.LIMITED_CONNECTIVITY.name
             }
             is SocketException -> {
-                "Limited Connectivity, Please Check internet"
+                Error.LIMITED_CONNECTIVITY.name
             }
             else -> {
                 t.message.toString()
@@ -245,48 +281,43 @@ internal class Klasha(
         }
     }
 
-    interface ExchangeCallback {
-        fun success(exchangeResponse: Response<ExchangeResponse>)
+    interface SDKCallback {
         fun error(message: String)
     }
 
-    interface SendCardPaymentCallback {
-        fun success(sendCardPaymentResponse: Response<SendCardPaymentResponse>)
-        fun error(message: String)
+    interface ExchangeCallback: SDKCallback {
+        fun success(response: Response<ExchangeResponse>)
     }
 
-    interface ChargeCardCallback {
-        fun success(chargeCardResponse: Response<ChargeCardResponse>)
-        fun error(message: String)
+    interface SendCardPaymentCallback: SDKCallback {
+        fun success(response: Response<SendCardPaymentResponse>)
     }
 
-    interface ValidatePaymentCallback {
-        fun success(validatePaymentResponse: Response<ValidatePaymentResponse>)
-        fun error(message: String)
+    interface ChargeCardCallback: SDKCallback {
+        fun success(response: Response<ChargeCardResponse>)
     }
 
-    interface BankTransferCallback {
-        fun success(bankTransferResponse: Response<BankTransferResponse>)
-        fun error(message: String)
+    interface ValidatePaymentCallback: SDKCallback {
+        fun success(response: Response<ValidatePaymentResponse>)
     }
 
-    interface MobileMoneyCallback {
-        fun success(mobileMoneyResponse: Response<MobileMoneyResponse>)
-        fun error(message: String)
+    interface BankTransferCallback: SDKCallback {
+        fun success(response: Response<BankTransferResponse>)
     }
 
-    interface MPESACallback {
-        fun success(mpesaResponse: Response<MPESAResponse>)
-        fun error(message: String)
+    interface MobileMoneyCallback: SDKCallback {
+        fun success(response: Response<MobileMoneyResponse>)
     }
 
-    interface WalletLoginCallback {
+    interface MPESACallback: SDKCallback {
+        fun success(response: Response<MPESAResponse>)
+    }
+
+    interface WalletLoginCallback: SDKCallback {
         fun success(walletLoginResponse: Response<WalletLoginResponse>)
-        fun error(message: String)
     }
 
-    interface WalletPaymentCallback {
-        fun success(walletPaymentResponse: Response<MakeWalletPaymentResponse>)
-        fun error(message: String)
+    interface WalletPaymentCallback: SDKCallback {
+        fun success(response: Response<MakeWalletPaymentResponse>)
     }
 }
