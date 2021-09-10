@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColor">@android:color/black</item>
     </style>
 
     <style name="Theme.KlashaAndroid.NoActionBar">
@@ -22,7 +23,4 @@
     <style name="Theme.KlashaAndroid.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.KlashaAndroid.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <color name="text_color">@android:color/black</color>
-
 </resources>
