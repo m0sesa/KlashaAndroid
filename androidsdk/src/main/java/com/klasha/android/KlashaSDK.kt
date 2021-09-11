@@ -368,20 +368,20 @@ object KlashaSDK {
             walletLoginRequest,
             object :
                 Klasha.WalletLoginCallback {
-                override fun success(walletLoginResponse: Response<WalletLoginResponse>) {
-                    if (walletLoginResponse.isSuccessful){
+                override fun success(response: Response<WalletLoginResponse>) {
+                    if (response.isSuccessful){
                         val amount = charge.amount
                         val sourceAmount = amount / rate
                         val walletPaymentRequest = MakeWalletPaymentRequest(
                             country!!.currency, charge.amount,
                             rate, sourceCurrency!!, sourceAmount,
                             charge.phone, charge.fullName,
-                            charge.transactionReference, walletLoginResponse.body()!!.email
+                            charge.transactionReference, response.body()!!.email
                         )
                         walletPayment(walletPaymentRequest, transactionCallback)
                     }else{
                         transactionCallback.error(weakReferenceActivity.get()!!,
-                            walletLoginResponse.body()!!.error)
+                            response.body()!!.error)
                     }
                 }
 
@@ -418,9 +418,9 @@ object KlashaSDK {
             })
     }
 
-    private fun checkValidAmount(amount: Double, transactionCallback: TransactionCallback): Boolean{
+    private fun checkValidAmount(amount: Double, callback: Callback): Boolean{
         return if (amount <= 0.0){
-            transactionCallback.error(
+            callback.error(
                 weakReferenceActivity.get()!!,
                 Error.ZERO_AMOUNT.name
             )
@@ -430,9 +430,9 @@ object KlashaSDK {
         }
     }
 
-    private fun checkSdkInitialised(activity: Activity, transactionCallback: TransactionCallback): Boolean{
+    private fun checkSdkInitialised(activity: Activity, callback: Callback): Boolean{
         if (!isInitialized){
-            transactionCallback.error(activity, Error.SDK_NOT_INITIALISED.name)
+            callback.error(activity, Error.SDK_NOT_INITIALISED.name)
         }
         return isInitialized
     }
@@ -483,13 +483,16 @@ object KlashaSDK {
         }
     }
 
-    interface TransactionCallback {
+    interface Callback {
         fun transactionInitiated(transactionReference: String)
-        fun success(ctx: Activity, transactionReference: String)
         fun error(ctx: Activity, message: String)
     }
 
-    interface BankTransferTransactionCallback: TransactionCallback {
+    interface TransactionCallback: Callback {
+        fun success(ctx: Activity, transactionReference: String)
+    }
+
+    interface BankTransferTransactionCallback: Callback {
         fun success(ctx: Activity, bankTransferResponse: BankTransferResp)
     }
 
