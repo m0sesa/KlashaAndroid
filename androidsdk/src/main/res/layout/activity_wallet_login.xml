@@ -26,18 +26,18 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        app:boxStrokeWidth="1dp"
-        app:boxStrokeWidthFocused="1dp"
+        android:layout_marginTop="24dp"
         app:boxCornerRadiusBottomEnd="8dp"
-        app:boxCornerRadiusTopEnd="8dp"
         app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
         app:boxCornerRadiusTopStart="8dp"
         app:boxStrokeColor="@color/primary_500"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidthFocused="1dp"
         app:hintTextColor="@color/primary_500"
         app:layout_constraintEnd_toEndOf="@+id/buttonLogin"
         app:layout_constraintStart_toStartOf="@+id/buttonLogin"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/username"
@@ -77,19 +77,12 @@
         style="@style/TextAppearance.AppCompat.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textColor="@color/primary_500"
+        android:layout_marginTop="40dp"
         android:text="@string/log_in"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/imageView" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="32dp"
-        android:contentDescription="@string/logo"
+        android:textColor="@color/edit_text_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_icon_app_itunes" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
