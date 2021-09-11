@@ -25,4 +25,5 @@
     <style name="Theme.KlashaAndroid.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <color name="card_background">@color/grey</color>
+    <color name="edit_text_color">@android:color/black</color>
 </resources>

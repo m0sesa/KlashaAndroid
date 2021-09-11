@@ -30,6 +30,7 @@
             android:focusable="false"
             android:gravity="center"
             android:hint="@string/otp"
+            android:textColor="@color/edit_text_color"
             android:inputType="number"
             android:textSize="20sp" />
 
