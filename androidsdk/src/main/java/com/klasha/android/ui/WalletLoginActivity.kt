@@ -18,10 +18,10 @@ class WalletLoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonLogin.setOnClickListener {
-            val login = Login(
-                "stephen@klasha.com",
-                "159Raphael)"
-            )
+            val username = binding.username.text.toString()
+            val password = binding.password.text.toString()
+
+            val login = Login(username, password)
             submit(login)
         }
     }
