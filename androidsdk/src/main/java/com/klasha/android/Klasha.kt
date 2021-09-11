@@ -165,7 +165,7 @@ internal class Klasha(
                     if (response.isSuccessful){
                         mobileMoneyCallback.success(response)
                     }else{
-                        mobileMoneyCallback.error(Error.BAD_REQUEST.name)
+                        mobileMoneyCallback.error(Error.TRANSACTION_NOT_SUPPORTED.name)
                     }
                 }
 
@@ -217,7 +217,7 @@ internal class Klasha(
                     if (response.isSuccessful){
                         walletLoginCallback.success(response)
                     }else{
-                        walletLoginCallback.error(Error.BAD_REQUEST.name)
+                        walletLoginCallback.error(Error.INVALID_CREDENTIALS.name)
                     }
                 }
 
@@ -243,7 +243,7 @@ internal class Klasha(
                     if (response.isSuccessful){
                         walletPaymentCallback.success(response)
                     }else{
-                        walletPaymentCallback.error(Error.BAD_REQUEST.name)
+                        walletPaymentCallback.error(Error.INVALID_CREDENTIALS.name)
                     }
                 }
 
